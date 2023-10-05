@@ -1,0 +1,520 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		214066FA2ACEF53F00AEFE1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214066F92ACEF53F00AEFE1C /* AppDelegate.swift */; };
+		214066FC2ACEF53F00AEFE1C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214066FB2ACEF53F00AEFE1C /* SceneDelegate.swift */; };
+		214066FE2ACEF53F00AEFE1C /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214066FD2ACEF53F00AEFE1C /* StartScreenViewController.swift */; };
+		214067032ACEF54100AEFE1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 214067022ACEF54100AEFE1C /* Assets.xcassets */; };
+		214067062ACEF54100AEFE1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214067042ACEF54100AEFE1C /* LaunchScreen.storyboard */; };
+		214067152ACEF66900AEFE1C /* StartScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214067142ACEF66900AEFE1C /* StartScreenView.swift */; };
+		214067172ACEF6D200AEFE1C /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214067162ACEF6D200AEFE1C /* GameView.swift */; };
+		214067192ACEF6E000AEFE1C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214067182ACEF6E000AEFE1C /* GameViewController.swift */; };
+		2140671B2ACEF6EF00AEFE1C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140671A2ACEF6EF00AEFE1C /* SettingsView.swift */; };
+		2140671D2ACEF6FB00AEFE1C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140671C2ACEF6FB00AEFE1C /* SettingsViewController.swift */; };
+		2140671F2ACEF70800AEFE1C /* RecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2140671E2ACEF70800AEFE1C /* RecordsView.swift */; };
+		214067212ACEF71500AEFE1C /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214067202ACEF71500AEFE1C /* RecordsViewController.swift */; };
+		214067242ACEF89D00AEFE1C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 214067232ACEF89D00AEFE1C /* SnapKit */; };
+		214067272ACEF9F100AEFE1C /* SwiftBoost in Frameworks */ = {isa = PBXBuildFile; productRef = 214067262ACEF9F100AEFE1C /* SwiftBoost */; };
+		21E89C5E2ACEFDFC0056147A /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E89C5D2ACEFDFC0056147A /* Asset.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		214066F62ACEF53F00AEFE1C /* SpaceInvaders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceInvaders.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		214066F92ACEF53F00AEFE1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		214066FB2ACEF53F00AEFE1C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		214066FD2ACEF53F00AEFE1C /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
+		214067022ACEF54100AEFE1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		214067052ACEF54100AEFE1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		214067072ACEF54100AEFE1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		214067142ACEF66900AEFE1C /* StartScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenView.swift; sourceTree = "<group>"; };
+		214067162ACEF6D200AEFE1C /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		214067182ACEF6E000AEFE1C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		2140671A2ACEF6EF00AEFE1C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		2140671C2ACEF6FB00AEFE1C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		2140671E2ACEF70800AEFE1C /* RecordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsView.swift; sourceTree = "<group>"; };
+		214067202ACEF71500AEFE1C /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
+		21E89C5D2ACEFDFC0056147A /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		214066F32ACEF53F00AEFE1C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				214067272ACEF9F100AEFE1C /* SwiftBoost in Frameworks */,
+				214067242ACEF89D00AEFE1C /* SnapKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		214066ED2ACEF53F00AEFE1C = {
+			isa = PBXGroup;
+			children = (
+				214066F82ACEF53F00AEFE1C /* SpaceInvaders */,
+				214066F72ACEF53F00AEFE1C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		214066F72ACEF53F00AEFE1C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				214066F62ACEF53F00AEFE1C /* SpaceInvaders.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		214066F82ACEF53F00AEFE1C /* SpaceInvaders */ = {
+			isa = PBXGroup;
+			children = (
+				2140670D2ACEF5C400AEFE1C /* Application */,
+				2140670E2ACEF5D200AEFE1C /* Screens */,
+				2140670F2ACEF5F100AEFE1C /* Resources */,
+			);
+			path = SpaceInvaders;
+			sourceTree = "<group>";
+		};
+		2140670D2ACEF5C400AEFE1C /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				214066F92ACEF53F00AEFE1C /* AppDelegate.swift */,
+				214066FB2ACEF53F00AEFE1C /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		2140670E2ACEF5D200AEFE1C /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				214067102ACEF61300AEFE1C /* StartScreen */,
+				214067112ACEF62600AEFE1C /* GameScreen */,
+				214067122ACEF63500AEFE1C /* SettingsScreen */,
+				214067132ACEF64400AEFE1C /* RecordsScreen */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		2140670F2ACEF5F100AEFE1C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				21E89C5B2ACEFDA70056147A /* Generated */,
+				214067022ACEF54100AEFE1C /* Assets.xcassets */,
+				214067042ACEF54100AEFE1C /* LaunchScreen.storyboard */,
+				214067072ACEF54100AEFE1C /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		214067102ACEF61300AEFE1C /* StartScreen */ = {
+			isa = PBXGroup;
+			children = (
+				214066FD2ACEF53F00AEFE1C /* StartScreenViewController.swift */,
+				214067142ACEF66900AEFE1C /* StartScreenView.swift */,
+			);
+			path = StartScreen;
+			sourceTree = "<group>";
+		};
+		214067112ACEF62600AEFE1C /* GameScreen */ = {
+			isa = PBXGroup;
+			children = (
+				214067182ACEF6E000AEFE1C /* GameViewController.swift */,
+				214067162ACEF6D200AEFE1C /* GameView.swift */,
+			);
+			path = GameScreen;
+			sourceTree = "<group>";
+		};
+		214067122ACEF63500AEFE1C /* SettingsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				2140671C2ACEF6FB00AEFE1C /* SettingsViewController.swift */,
+				2140671A2ACEF6EF00AEFE1C /* SettingsView.swift */,
+			);
+			path = SettingsScreen;
+			sourceTree = "<group>";
+		};
+		214067132ACEF64400AEFE1C /* RecordsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				214067202ACEF71500AEFE1C /* RecordsViewController.swift */,
+				2140671E2ACEF70800AEFE1C /* RecordsView.swift */,
+			);
+			path = RecordsScreen;
+			sourceTree = "<group>";
+		};
+		21E89C5B2ACEFDA70056147A /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				21E89C5D2ACEFDFC0056147A /* Asset.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		214066F52ACEF53F00AEFE1C /* SpaceInvaders */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2140670A2ACEF54100AEFE1C /* Build configuration list for PBXNativeTarget "SpaceInvaders" */;
+			buildPhases = (
+				21E89C5C2ACEFDC50056147A /* SwiftGen */,
+				214066F22ACEF53F00AEFE1C /* Sources */,
+				214066F32ACEF53F00AEFE1C /* Frameworks */,
+				214066F42ACEF53F00AEFE1C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpaceInvaders;
+			packageProductDependencies = (
+				214067232ACEF89D00AEFE1C /* SnapKit */,
+				214067262ACEF9F100AEFE1C /* SwiftBoost */,
+			);
+			productName = SpaceInvaders;
+			productReference = 214066F62ACEF53F00AEFE1C /* SpaceInvaders.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		214066EE2ACEF53F00AEFE1C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					214066F52ACEF53F00AEFE1C = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 214066F12ACEF53F00AEFE1C /* Build configuration list for PBXProject "SpaceInvaders" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 214066ED2ACEF53F00AEFE1C;
+			packageReferences = (
+				214067222ACEF89D00AEFE1C /* XCRemoteSwiftPackageReference "SnapKit" */,
+				214067252ACEF9F100AEFE1C /* XCRemoteSwiftPackageReference "SwiftBoost" */,
+			);
+			productRefGroup = 214066F72ACEF53F00AEFE1C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				214066F52ACEF53F00AEFE1C /* SpaceInvaders */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		214066F42ACEF53F00AEFE1C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				214067062ACEF54100AEFE1C /* LaunchScreen.storyboard in Resources */,
+				214067032ACEF54100AEFE1C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		21E89C5C2ACEFDC50056147A /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftgen > /dev/null; then\n  swiftgen config run --config \"swiftgen.yml\"\nelse\n  echo \"warning: SwiftGen not installed!\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		214066F22ACEF53F00AEFE1C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2140671B2ACEF6EF00AEFE1C /* SettingsView.swift in Sources */,
+				214066FE2ACEF53F00AEFE1C /* StartScreenViewController.swift in Sources */,
+				214067152ACEF66900AEFE1C /* StartScreenView.swift in Sources */,
+				21E89C5E2ACEFDFC0056147A /* Asset.swift in Sources */,
+				2140671F2ACEF70800AEFE1C /* RecordsView.swift in Sources */,
+				214066FA2ACEF53F00AEFE1C /* AppDelegate.swift in Sources */,
+				214066FC2ACEF53F00AEFE1C /* SceneDelegate.swift in Sources */,
+				214067192ACEF6E000AEFE1C /* GameViewController.swift in Sources */,
+				214067172ACEF6D200AEFE1C /* GameView.swift in Sources */,
+				2140671D2ACEF6FB00AEFE1C /* SettingsViewController.swift in Sources */,
+				214067212ACEF71500AEFE1C /* RecordsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		214067042ACEF54100AEFE1C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				214067052ACEF54100AEFE1C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		214067082ACEF54100AEFE1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		214067092ACEF54100AEFE1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2140670B2ACEF54100AEFE1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T5826VSXK9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SpaceInvaders/Resources/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kateKrasova.SpaceInvaders;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		2140670C2ACEF54100AEFE1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T5826VSXK9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SpaceInvaders/Resources/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kateKrasova.SpaceInvaders;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		214066F12ACEF53F00AEFE1C /* Build configuration list for PBXProject "SpaceInvaders" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				214067082ACEF54100AEFE1C /* Debug */,
+				214067092ACEF54100AEFE1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2140670A2ACEF54100AEFE1C /* Build configuration list for PBXNativeTarget "SpaceInvaders" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2140670B2ACEF54100AEFE1C /* Debug */,
+				2140670C2ACEF54100AEFE1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		214067222ACEF89D00AEFE1C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		214067252ACEF9F100AEFE1C /* XCRemoteSwiftPackageReference "SwiftBoost" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparrowcode/SwiftBoost";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		214067232ACEF89D00AEFE1C /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 214067222ACEF89D00AEFE1C /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		214067262ACEF9F100AEFE1C /* SwiftBoost */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 214067252ACEF9F100AEFE1C /* XCRemoteSwiftPackageReference "SwiftBoost" */;
+			productName = SwiftBoost;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 214066EE2ACEF53F00AEFE1C /* Project object */;
+}
