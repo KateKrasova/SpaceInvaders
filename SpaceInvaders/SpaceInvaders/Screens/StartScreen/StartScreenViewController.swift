@@ -26,11 +26,11 @@ final class StartScreenViewController: UIViewController {
         }
 
         moduleView.settingsTappedClosure = { [weak self] in
-            self?.navigationController?.pushViewController(SettingsViewController(), animated: false)
+            self?.present(SettingsViewController(), animated: true)
         }
 
         moduleView.recordsTappedClosure = { [weak self] in
-            self?.navigationController?.pushViewController(RecordsViewController(), animated: false)
+            self?.present(RecordsViewController(), animated: true)
         }
     }
 

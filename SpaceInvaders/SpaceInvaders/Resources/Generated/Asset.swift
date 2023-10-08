@@ -35,7 +35,6 @@ public enum Asset {
     public static let ship1 = ImageAsset(name: "Images/ship1")
     public static let ship2 = ImageAsset(name: "Images/ship2")
     public static let ship3 = ImageAsset(name: "Images/ship3")
-    public static let ship4 = ImageAsset(name: "Images/ship4")
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name

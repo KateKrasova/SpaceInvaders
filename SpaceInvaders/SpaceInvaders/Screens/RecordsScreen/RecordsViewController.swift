@@ -24,5 +24,7 @@ final class RecordsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        guard let items = UserDefaultsService.userRecords else {return}
+        moduleView.render(items)
     }
 }

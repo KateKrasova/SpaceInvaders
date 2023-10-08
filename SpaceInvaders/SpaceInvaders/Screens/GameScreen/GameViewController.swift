@@ -16,6 +16,16 @@ final class GameViewController: UIViewController {
 
     override func loadView() {
         view = moduleView
+        moduleView.alertClosure = { [weak self] in
+            let alertController = UIAlertController(title: "Ooops", message: "GAME OVER", preferredStyle: .alert)
+
+            let okAction = UIAlertAction(title: "OK", style: .default) { _ in 
+                self?.navigationController?.popViewController(animated: true)
+            }
+            alertController.addAction(okAction)
+
+            self?.present(alertController, animated: true, completion: nil)
+        }
     }
 
     override func viewDidLoad() {

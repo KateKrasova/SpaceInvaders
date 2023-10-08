@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		211039432AD2CEF300F145AE /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211039422AD2CEF300F145AE /* UserDefaultsService.swift */; };
+		211039452AD2D03600F145AE /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211039442AD2D03600F145AE /* UserDataModel.swift */; };
+		2110394B2AD2ED6500F145AE /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2110394A2AD2ED6500F145AE /* RecordsTableViewCell.swift */; };
 		214066FA2ACEF53F00AEFE1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214066F92ACEF53F00AEFE1C /* AppDelegate.swift */; };
 		214066FC2ACEF53F00AEFE1C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214066FB2ACEF53F00AEFE1C /* SceneDelegate.swift */; };
 		214066FE2ACEF53F00AEFE1C /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214066FD2ACEF53F00AEFE1C /* StartScreenViewController.swift */; };
@@ -25,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		211039422AD2CEF300F145AE /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
+		211039442AD2D03600F145AE /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
+		2110394A2AD2ED6500F145AE /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewCell.swift; sourceTree = "<group>"; };
 		214066F62ACEF53F00AEFE1C /* SpaceInvaders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceInvaders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		214066F92ACEF53F00AEFE1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		214066FB2ACEF53F00AEFE1C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +61,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		211039402AD2CBE100F145AE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				211039412AD2CBF200F145AE /* UserDefaultsService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		211039412AD2CBF200F145AE /* UserDefaultsService */ = {
+			isa = PBXGroup;
+			children = (
+				211039422AD2CEF300F145AE /* UserDefaultsService.swift */,
+				211039442AD2D03600F145AE /* UserDataModel.swift */,
+			);
+			path = UserDefaultsService;
+			sourceTree = "<group>";
+		};
 		214066ED2ACEF53F00AEFE1C = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +99,7 @@
 			children = (
 				2140670D2ACEF5C400AEFE1C /* Application */,
 				2140670E2ACEF5D200AEFE1C /* Screens */,
+				211039402AD2CBE100F145AE /* Services */,
 				2140670F2ACEF5F100AEFE1C /* Resources */,
 			);
 			path = SpaceInvaders;
@@ -144,6 +168,7 @@
 			children = (
 				214067202ACEF71500AEFE1C /* RecordsViewController.swift */,
 				2140671E2ACEF70800AEFE1C /* RecordsView.swift */,
+				2110394A2AD2ED6500F145AE /* RecordsTableViewCell.swift */,
 			);
 			path = RecordsScreen;
 			sourceTree = "<group>";
@@ -257,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				211039432AD2CEF300F145AE /* UserDefaultsService.swift in Sources */,
 				2140671B2ACEF6EF00AEFE1C /* SettingsView.swift in Sources */,
 				214066FE2ACEF53F00AEFE1C /* StartScreenViewController.swift in Sources */,
 				214067152ACEF66900AEFE1C /* StartScreenView.swift in Sources */,
@@ -266,7 +292,9 @@
 				214066FC2ACEF53F00AEFE1C /* SceneDelegate.swift in Sources */,
 				214067192ACEF6E000AEFE1C /* GameViewController.swift in Sources */,
 				214067172ACEF6D200AEFE1C /* GameView.swift in Sources */,
+				2110394B2AD2ED6500F145AE /* RecordsTableViewCell.swift in Sources */,
 				2140671D2ACEF6FB00AEFE1C /* SettingsViewController.swift in Sources */,
+				211039452AD2D03600F145AE /* UserDataModel.swift in Sources */,
 				214067212ACEF71500AEFE1C /* RecordsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,7 +363,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -389,7 +417,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
