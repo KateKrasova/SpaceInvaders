@@ -28,6 +28,5 @@ final class SettingsViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         moduleView.saveSettings()
-        print(UserDefaultsService.user)
     }
 }

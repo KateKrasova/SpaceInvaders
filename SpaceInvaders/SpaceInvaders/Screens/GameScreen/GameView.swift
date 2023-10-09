@@ -20,14 +20,9 @@ final class GameView: UIView {
 
     // MARK: - Props
 
-    struct Props: Equatable {
-    }
-
-    var alertClosure: (()->Void)?
+    var alertClosure: (() -> Void)?
 
     // MARK: - Private Props
-
-    private var props: Props?
 
     private var shipCenterConstraint: Constraint?
     private var shipCenterOffset = 0.0
@@ -44,6 +39,20 @@ final class GameView: UIView {
     }
 
     private var user = UserDefaultsService.user
+
+    private lazy var isFieldGenereted = false
+
+    var spawnSpeed : Double {
+        switch user?.level {
+        case "Easy":
+            return 3
+        case "Middle":
+            return 1.5
+        case "Hard":
+            return 0.5
+        default: return 3
+        }
+    }
 
     // MARK: - Views
 
@@ -77,6 +86,10 @@ final class GameView: UIView {
         $0.addTarget(self, action: #selector(shotButtonTap), for: .touchUpInside)
     }
 
+    private lazy var leftSideFieldViews: [MovingView] = []
+
+    private lazy var rightSideFieldViews: [MovingView] = []
+
     private lazy var shipImage = UIImageView().do {
         $0.contentMode = .scaleAspectFit
         switch user?.ship {
@@ -106,19 +119,9 @@ final class GameView: UIView {
     }
 }
 
-// MARK: - Internal Methods
-
-extension GameView {
-    func render(_ props: Props) {
-        guard self.props != props else { return }
-        self.props = props
-    }
-}
-
 // MARK: - Private Methods
 
 private extension GameView {
-    /// Настройка View
     func setup() {
         backgroundColor = .black
 
@@ -133,20 +136,19 @@ private extension GameView {
         createTimers()
     }
 
-    /// Установка констреинтов
     func setupConstraints() {
         pointsLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(Constants.offset16)
+            $0.centerX.equalToSuperview()
             $0.top.equalTo(safeAreaLayoutGuide.snp.top).offset(Constants.offset16)
         }
 
         leftButton.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(Constants.offset16)
+            $0.trailing.equalTo(shotButton.snp.leading).offset(-Constants.offset16)
             $0.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-Constants.offset16)
         }
 
         rightButton.snp.makeConstraints {
-            $0.trailing.equalToSuperview().inset(Constants.offset16)
+            $0.leading.equalTo(shotButton.snp.trailing).offset(Constants.offset16)
             $0.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-Constants.offset16)
         }
 
@@ -161,12 +163,13 @@ private extension GameView {
 
             $0.bottom.equalTo(shotButton.snp.top).offset(-Constants.offset16)
             $0.height.equalTo(Constants.shipHight)
+            $0.width.equalTo(Constants.shipWidth)
         }
     }
 
     @objc
     private func leftButtonTap() {
-        guard abs(shipCenterOffset - 10) <= abs(self.frame.width / 2 - 50.0) else { return }
+        guard abs(shipCenterOffset - 10) <= abs(self.frame.width / 2 - 50 - Constants.shipWidth / 2) else { return }
         shipCenterOffset -= 10
 
         changeShipPosition()
@@ -174,7 +177,7 @@ private extension GameView {
 
     @objc
     private func rightButtonTap() {
-        guard abs(shipCenterOffset + 10) <= abs(self.frame.width / 2 - 50.0) else { return }
+        guard abs(shipCenterOffset + 10) <= abs(self.frame.width / 2 - 50 - Constants.shipWidth / 2) else { return }
         shipCenterOffset += 10
 
         changeShipPosition()
@@ -217,6 +220,61 @@ private extension GameView {
 
 private extension GameView {
     func createTimers() {
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] timer in
+            guard let self, frame.height != 0 else { return }
+
+            while (CGFloat(leftSideFieldViews.count) * 25.0) <= frame.height {
+                let viewLeft = UIView().do {
+                    $0.backgroundColor = .white
+                }
+
+                addSubview(viewLeft)
+
+                var constraint: Constraint?
+
+                viewLeft.snp.makeConstraints {
+                    constraint = $0.top.equalToSuperview().constraint
+                    $0.leading.equalToSuperview()
+
+                    $0.size.equalTo(CGSize(width: Int.random(in: (25...50)), height: 25))
+                }
+
+                var offset = 0.0
+                if let last = leftSideFieldViews.last {
+                    offset = last.offset + 25
+                }
+
+                leftSideFieldViews.append(.init(view: viewLeft, constrant: constraint, offset: offset))
+
+                // ---
+
+                let viewRight = UIView().do {
+                    $0.backgroundColor = .white
+                }
+
+                addSubview(viewRight)
+
+                var constraintRight: Constraint?
+
+                viewRight.snp.makeConstraints {
+                    constraintRight = $0.top.equalToSuperview().constraint
+                    $0.trailing.equalToSuperview()
+
+                    $0.size.equalTo(CGSize(width: Int.random(in: (25...50)), height: 25))
+                }
+
+                offset = 0.0
+                if let last = leftSideFieldViews.last {
+                    offset = last.offset + 25
+                }
+
+                rightSideFieldViews.append(.init(view: viewRight, constrant: constraintRight, offset: offset))
+            }
+
+            isFieldGenereted = true
+            timer.invalidate()
+        }
+
         // MARK: Update State
 
         Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { [weak self] timer in
@@ -280,11 +338,77 @@ private extension GameView {
                 self.bulletsOnScreen[index].view.removeFromSuperview()
                 self.bulletsOnScreen.remove(at: index)
             }
+
+            if isFieldGenereted {
+                // Fields Spawn
+
+                if (CGFloat(leftSideFieldViews.count) * 25.0) <= frame.height {
+                    if leftSideFieldViews.count == 0 || leftSideFieldViews.last?.offset ?? -1 >= leftSideFieldViews.last?.view.frame.height ?? 0 {
+                        let view = UIView().do {
+                            $0.backgroundColor = .white
+                        }
+
+                        addSubview(view)
+
+                        var constraint: Constraint?
+
+                        view.snp.makeConstraints {
+                            constraint = $0.top.equalToSuperview().constraint
+                            $0.leading.equalToSuperview()
+
+                            $0.size.equalTo(CGSize(width: Int.random(in: (25...50)), height: 25))
+                        }
+
+                        leftSideFieldViews.append(.init(view: view, constrant: constraint, offset: 0.0))
+
+                        // ---
+
+                        let viewRight = UIView().do {
+                            $0.backgroundColor = .white
+                        }
+
+                        addSubview(viewRight)
+
+                        var constraintRight: Constraint?
+
+                        viewRight.snp.makeConstraints {
+                            constraintRight = $0.top.equalToSuperview().constraint
+                            $0.trailing.equalToSuperview()
+
+                            $0.size.equalTo(CGSize(width: Int.random(in: (25...50)), height: 25))
+                        }
+
+                        rightSideFieldViews.append(.init(view: viewRight, constrant: constraintRight, offset: 0.0))
+                    }
+                }
+
+                // Fields Moving
+
+                var indexesForFields: Set<Int> = []
+                for index in (0..<leftSideFieldViews.count) {
+                    let offset = leftSideFieldViews[index].offset + 1
+
+                    guard offset < frame.height else {
+                        indexesForFields.insert(index)
+                        continue
+                    }
+
+                    leftSideFieldViews[index].offset = offset
+                    leftSideFieldViews[index].constrant?.update(offset: offset)
+
+                    rightSideFieldViews[index].offset = offset
+                    rightSideFieldViews[index].constrant?.update(offset: offset)
+                }
+                indexesForFields.forEach { index in
+                    self.leftSideFieldViews[safe: index]?.view.removeFromSuperview()
+                    self.leftSideFieldViews.remove(at: index)
+                }
+            }
         }
 
         // MARK: Spawn Alian
 
-        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true) { [weak self] timer in
+        Timer.scheduledTimer(withTimeInterval: spawnSpeed, repeats: true) { [weak self] timer in
             if self?.isGameOver == true {
                 timer.invalidate()
                 return
@@ -301,9 +425,9 @@ private extension GameView {
             var alianTopConstraint: Constraint?
             alianImageView.snp.makeConstraints {
                 alianTopConstraint = $0.top.equalTo(self.safeAreaLayoutGuide.snp.top).constraint
-                $0.centerX.equalToSuperview().offset(Int.random(in: -Int((self.frame.width / 2))..<Int((self.frame.width / 2))))
+                $0.centerX.equalToSuperview().offset(Int.random(in: -Int((self.frame.width / 2 - 50 - Constants.aleanWidth / 2))..<Int((self.frame.width / 2 - 50 - Constants.aleanWidth / 2))))
 
-                $0.size.equalTo(CGSize(width: 32.0, height: 24.0))
+                $0.size.equalTo(CGSize(width: Constants.aleanWidth, height: Constants.aleanHeight))
             }
 
             aliansOnScreen.append(.init(view: alianImageView, constrant: alianTopConstraint, offset: 0.0))
@@ -323,8 +447,14 @@ private extension GameView {
 
         static let buttonsSize: CGFloat = 35
         static let offset16: CGFloat = 16
-        static let shipHight: CGFloat = 50
+        static let shipHight: CGFloat = 70
+        static let shipWidth: CGFloat = 55
         static let bulletSize: CGFloat = 5
 
+        static let aleanWidth: CGFloat = 70
+        static let aleanHeight: CGFloat = 50
+
+        static let minFieldWidth: Int = 25
+        static let maxFieldWidth: Int = 50
     }
 }
