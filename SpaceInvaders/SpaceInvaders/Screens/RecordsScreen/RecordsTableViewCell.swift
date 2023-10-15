@@ -16,13 +16,14 @@ final class RecordsTableViewCell: UITableViewCell {
         let number: Int
         let name: String
         let points: Int
+        let level: String
     }
 
     // MARK: - Views
 
     private lazy var mainLabel = UILabel().do {
         $0.textColor = Asset.Colors.yellowMain.color
-        $0.font = .systemFont(ofSize: 24, weight: .semibold)
+        $0.font = .systemFont(ofSize: Constants.font24, weight: .semibold)
         $0.textAlignment = .left
         $0.numberOfLines = 0
     }
@@ -33,7 +34,6 @@ final class RecordsTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         setup()
-        setupViews()
         setupConstraints()
     }
 
@@ -41,13 +41,17 @@ final class RecordsTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    override func prepareForReuse() {
+        mainLabel.text = nil
+    }
 }
 
 // MARK: - Internal Methods
 
 extension RecordsTableViewCell {
     func updateViews(_ props: Props) {
-        mainLabel.text = "\(props.number). \(props.name) - \(props.points)"
+        mainLabel.text = "\(props.number). \(props.name)(\(props.level)) - \(props.points)"
     }
 }
 
@@ -56,19 +60,28 @@ extension RecordsTableViewCell {
 private extension RecordsTableViewCell {
     func setup() {
         backgroundColor = .black
-    }
 
-    func setupViews() {
         contentView.addSubviews(
             mainLabel
         )
-
     }
 
     func setupConstraints() {
         mainLabel.snp.makeConstraints {
-            $0.top.bottom.equalToSuperview().inset(8)
-            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.top.bottom.equalToSuperview().inset(Constants.offset8)
+            $0.leading.trailing.equalToSuperview().inset(Constants.offset16)
         }
     }
 }
+
+// MARK: - Constants
+
+private extension RecordsTableViewCell {
+    enum Constants {
+        static let font24: CGFloat = 24
+
+        static let offset8: CGFloat = 8
+        static let offset16: CGFloat = 16
+    }
+}
+

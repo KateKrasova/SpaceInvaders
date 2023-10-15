@@ -24,6 +24,8 @@ final class SettingsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        guard let user = UserDefaultsService.user else {return}
+        moduleView.updateInfo(info: .init(userName: user.name, ship: user.ship, level: user.level))
     }
 
     override func viewWillDisappear(_ animated: Bool) {

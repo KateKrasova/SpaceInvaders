@@ -13,6 +13,9 @@ final class SettingsView: UIView {
     // MARK: - Props
 
     struct Props: Equatable {
+        let userName: String
+        let ship: Int
+        let level: String
     }
 
     // MARK: - Private Props
@@ -28,7 +31,7 @@ final class SettingsView: UIView {
     private lazy var enterNameLabel = UILabel().do {
         $0.text = "Enter your name"
         $0.textColor = .white
-        $0.font = .systemFont(ofSize: 24, weight: .bold)
+        $0.font = .systemFont(ofSize: Constants.fontSize24, weight: .bold)
         $0.textAlignment = .center
     }
 
@@ -61,7 +64,6 @@ final class SettingsView: UIView {
         super.init(frame: .zero)
 
         setup()
-        setupViews()
         setupConstraints()
     }
 
@@ -76,17 +78,45 @@ final class SettingsView: UIView {
 extension SettingsView {
     func saveSettings() {
         var user = UserDefaultsService.user
-
         user = .init(name: name, points: 0, ship: ship, level: level)
-
         UserDefaultsService.user = user
+    }
+
+    func updateInfo(info: Props) {
+        enterNameTextField.text = info.userName
+        shipSegmentedControl.selectedSegmentIndex = info.ship - 1
+
+        switch info.ship {
+        case 1:
+            shipImage.image = Asset.Images.ship1.image
+        case 2:
+            shipImage.image = Asset.Images.ship2.image
+        case 3:
+            shipImage.image = Asset.Images.ship3.image
+        default: break
+        }
+
+        switch info.level {
+        case "Easy":
+            levelSegmentedControl.selectedSegmentIndex = 0
+        case "Middle":
+            levelSegmentedControl.selectedSegmentIndex = 1
+        case "Hard":
+            levelSegmentedControl.selectedSegmentIndex = 2
+
+        default: break
+        }
+
+        name = info.userName
+        ship = info.ship
+        level = info.level
+
     }
 }
 
 // MARK: - Private Methods
 
 private extension SettingsView {
-    /// Настройка View
     func setup() {
         backgroundColor = .black
 
@@ -99,36 +129,31 @@ private extension SettingsView {
         )
     }
 
-    /// Добавление Views
-    func setupViews() {
-    }
-
-    /// Установка констреинтов
     func setupConstraints() {
         enterNameLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(safeAreaLayoutGuide.snp.top).offset(16)
+            $0.top.equalTo(safeAreaLayoutGuide.snp.top).offset(Constants.offset16)
         }
 
         enterNameTextField.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview().inset(24)
-            $0.top.equalTo(enterNameLabel.snp.bottom).offset(16)
+            $0.leading.trailing.equalToSuperview().inset(Constants.offset24)
+            $0.top.equalTo(enterNameLabel.snp.bottom).offset(Constants.offset16)
         }
 
         shipSegmentedControl.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview().inset(24)
-            $0.top.equalTo(enterNameTextField.snp.bottom).offset(16)
+            $0.leading.trailing.equalToSuperview().inset(Constants.offset24)
+            $0.top.equalTo(enterNameTextField.snp.bottom).offset(Constants.offset16)
         }
 
         shipImage.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.height.equalToSuperview().dividedBy(6)
-            $0.top.equalTo(shipSegmentedControl.snp.bottom).offset(50)
+            $0.height.equalToSuperview().dividedBy(Constants.shipRatio)
+            $0.top.equalTo(shipSegmentedControl.snp.bottom).offset(Constants.offset50)
         }
 
         levelSegmentedControl.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview().inset(24)
-            $0.top.equalTo(shipImage.snp.bottom).offset(16)
+            $0.leading.trailing.equalToSuperview().inset(Constants.offset24)
+            $0.top.equalTo(shipImage.snp.bottom).offset(Constants.offset16)
         }
     }
 
@@ -163,6 +188,8 @@ private extension SettingsView {
     }
 }
 
+// MARK: - UITextFieldDelegate
+
 extension SettingsView: UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         endEditing(true)
@@ -184,5 +211,12 @@ extension SettingsView: UITextFieldDelegate {
 
 private extension SettingsView {
     enum Constants {
+        static let fontSize24: CGFloat = 24
+
+        static let offset16: CGFloat = 16
+        static let offset24: CGFloat = 24
+        static let offset50: CGFloat = 50
+
+        static let shipRatio: Int = 6
     }
 }

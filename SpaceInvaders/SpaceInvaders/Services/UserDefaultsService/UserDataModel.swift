@@ -7,7 +7,7 @@
 
 struct UserDataModel: Codable {
     let name: String
-    let points: Int
+    var points: Int
     let ship: Int
     let level: String
 }

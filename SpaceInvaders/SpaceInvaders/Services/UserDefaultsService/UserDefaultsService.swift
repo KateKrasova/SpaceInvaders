@@ -8,10 +8,14 @@
 import Foundation
 
 struct UserDefaultsService {
+    //MARK: - Keys
+
     enum Keys: String {
         case user
         case userRecords
     }
+
+    //MARK: - Values
 
     static var user: UserDataModel? {
         get {

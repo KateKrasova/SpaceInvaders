@@ -25,6 +25,6 @@ final class RecordsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         guard let items = UserDefaultsService.userRecords else {return}
-        moduleView.render(items)
+        moduleView.render(items.sorted(by: { $0.points > $1.points }))
     }
 }
